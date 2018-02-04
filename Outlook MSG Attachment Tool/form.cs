@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Outlook_MSG_Attachment_Tool.Properties;
 using Microsoft.Office.Interop.Outlook;
-using MigraDoc.DocumentObjectModel;
-using MigraDoc.Rendering;
-using PdfSharp.Pdf;
 using Color = System.Drawing.Color;
 
 
@@ -175,39 +172,6 @@ namespace Outlook_MSG_Attachment_Tool
             }
         }
 
-        // Returns a pdf file containing useful information extracted from the msg file
-        private Document GeneratePdf(MailItem msg)
-        {
-            Document pdf = new Document();
-            Section section = pdf.AddSection();
-
-            section.AddParagraph("From: " + msg.SenderEmailAddress);
-            section.AddParagraph("To: " + msg.To);
-            
-            if (msg.CC != null)
-            {
-                section.AddParagraph("CC: " + msg.CC);
-            }
-
-            section.AddParagraph("Date Received: " + msg.ReceivedTime.ToString("M/d/yyyy h:mm tt"));
-
-            section.AddParagraph();
-
-            if (msg.Subject != null)
-            {
-                section.AddParagraph("Subject: " + msg.Subject);
-            }
-
-            section.AddParagraph();
-
-            if (msg.Body != null)
-            {
-                section.AddParagraph(msg.Body);
-            }
-
-            return pdf;
-        }
-
         // Predicate for finding all files with the .msg extension in a list of paths
         private static bool HasMsgExtension(string path)
         {
@@ -283,19 +247,6 @@ namespace Outlook_MSG_Attachment_Tool
                 else
                 {
                     Directory.CreateDirectory(folderPath);
-                }
-
-                if (Settings.Default.createPDF)
-                {
-                    Document pdf = GeneratePdf(msg);
-
-                    PdfDocumentRenderer renderer = new PdfDocumentRenderer(false, PdfFontEmbedding.Always)
-                    {
-                        Document = pdf
-                    };
-
-                    renderer.RenderDocument();
-                    renderer.PdfDocument.Save(Path.Combine(folderPath, msg.Subject + ".pdf"));
                 }
 
                 foreach (Attachment attachment in msg.Attachments)
