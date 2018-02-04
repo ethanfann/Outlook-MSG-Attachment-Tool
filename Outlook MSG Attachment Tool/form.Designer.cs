@@ -37,7 +37,6 @@ namespace Outlook_MSG_Attachment_Tool
             this.dragLabel = new System.Windows.Forms.Label();
             this.settingsButton = new System.Windows.Forms.Button();
             this.settingsPanel = new System.Windows.Forms.Panel();
-            this.pdfBox = new System.Windows.Forms.CheckBox();
             this.deepSearchBox = new System.Windows.Forms.CheckBox();
             this.browseButton = new System.Windows.Forms.Button();
             this.locationText = new System.Windows.Forms.TextBox();
@@ -47,7 +46,6 @@ namespace Outlook_MSG_Attachment_Tool
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.deepSearchTip = new System.Windows.Forms.ToolTip(this.components);
             this.locationBoxTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pdfTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.settingsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -95,7 +93,6 @@ namespace Outlook_MSG_Attachment_Tool
             // 
             // settingsPanel
             // 
-            this.settingsPanel.Controls.Add(this.pdfBox);
             this.settingsPanel.Controls.Add(this.deepSearchBox);
             this.settingsPanel.Controls.Add(this.browseButton);
             this.settingsPanel.Controls.Add(this.locationText);
@@ -106,20 +103,6 @@ namespace Outlook_MSG_Attachment_Tool
             this.settingsPanel.Size = new System.Drawing.Size(284, 231);
             this.settingsPanel.TabIndex = 6;
             // 
-            // pdfBox
-            // 
-            this.pdfBox.AutoSize = true;
-            this.pdfBox.Checked = global::Outlook_MSG_Attachment_Tool.Properties.Settings.Default.createPDF;
-            this.pdfBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Outlook_MSG_Attachment_Tool.Properties.Settings.Default, "createPDF", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.pdfBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.pdfBox.Location = new System.Drawing.Point(12, 79);
-            this.pdfBox.Name = "pdfBox";
-            this.pdfBox.Size = new System.Drawing.Size(485, 34);
-            this.pdfBox.TabIndex = 8;
-            this.pdfBox.Text = "Beta - Generate a PDF version of the .msg file";
-            this.pdfTip.SetToolTip(this.pdfBox, "Includes the To, From, CC, Send date, and Body fields.");
-            this.pdfBox.UseVisualStyleBackColor = true;
-            // 
             // deepSearchBox
             // 
             this.deepSearchBox.AutoSize = true;
@@ -128,7 +111,7 @@ namespace Outlook_MSG_Attachment_Tool
             this.deepSearchBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.deepSearchBox.Location = new System.Drawing.Point(12, 55);
             this.deepSearchBox.Name = "deepSearchBox";
-            this.deepSearchBox.Size = new System.Drawing.Size(200, 34);
+            this.deepSearchBox.Size = new System.Drawing.Size(109, 17);
             this.deepSearchBox.TabIndex = 7;
             this.deepSearchBox.Text = "Scan Subfolders";
             this.deepSearchTip.SetToolTip(this.deepSearchBox, "Scan for additional .msg files stored in subfolders. Be default, only .msg files " +
@@ -157,7 +140,7 @@ namespace Outlook_MSG_Attachment_Tool
             this.locationText.Location = new System.Drawing.Point(23, 26);
             this.locationText.Name = "locationText";
             this.locationText.ReadOnly = true;
-            this.locationText.Size = new System.Drawing.Size(180, 37);
+            this.locationText.Size = new System.Drawing.Size(180, 22);
             this.locationText.TabIndex = 5;
             this.locationText.Text = global::Outlook_MSG_Attachment_Tool.Properties.Settings.Default.savePath;
             // 
@@ -169,7 +152,7 @@ namespace Outlook_MSG_Attachment_Tool
             this.locationBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.locationBox.Location = new System.Drawing.Point(12, 3);
             this.locationBox.Name = "locationBox";
-            this.locationBox.Size = new System.Drawing.Size(278, 34);
+            this.locationBox.Size = new System.Drawing.Size(151, 17);
             this.locationBox.TabIndex = 4;
             this.locationBox.Text = "Save to a single location";
             this.locationBoxTip.SetToolTip(this.locationBox, "Output to a specified folder instead of the location of the original file(s).");
@@ -179,7 +162,7 @@ namespace Outlook_MSG_Attachment_Tool
             // DragForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.settingsPanel);
@@ -213,8 +196,6 @@ namespace Outlook_MSG_Attachment_Tool
         private CheckBox deepSearchBox;
         private ToolTip deepSearchTip;
         private ToolTip locationBoxTip;
-        private CheckBox pdfBox;
-        private ToolTip pdfTip;
         private ToolTip toolTip1;
     }
 }
