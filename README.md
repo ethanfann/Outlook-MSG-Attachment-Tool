@@ -2,6 +2,8 @@
 
 A Windows application which offers a drag-and-drop interface for extracting attachments stored in .msg files
 
+<a href="https://imgur.com/AfzFZUz"><img src="https://i.imgur.com/AfzFZUz.gif" title="source: imgur.com" /></a>
+
 ## Getting Started
 
 ### Prerequisites
