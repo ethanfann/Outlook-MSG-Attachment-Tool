@@ -19,7 +19,7 @@ Microsoft .Net Framework 4.5 or newer
 
 ### Usage
 
-Drag and drop a .msg file over the window to extract the attachments store inside and save them to a folder in the same location as the original file. The generated folder will have the same name as the original file.
+Drag and drop a .msg file over the window to extract the attachments stored inside and save them to a folder in the same location as the original file.
 
 Or, drag a folder containing multiple .msg files and they will all be processed.
 
